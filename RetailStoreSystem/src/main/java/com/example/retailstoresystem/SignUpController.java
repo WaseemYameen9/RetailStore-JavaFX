@@ -41,8 +41,8 @@ public class SignUpController {
     @FXML
     protected void OnSignUpButtonCLick(ActionEvent event) throws IOException
     {
-        // Son here add the code to signup
-
+        var role=RoleCB.getSelectionModel().getSelectedItem();
+        MuserDL.addUser(new Muser(txtuser.getText() ,txtpassword.getText(),RoleCB.getSelectionModel().getSelectedItem()));
 
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root , 600, 400);

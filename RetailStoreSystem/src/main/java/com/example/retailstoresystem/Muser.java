@@ -1,6 +1,8 @@
 package com.example.retailstoresystem;
 
-public class Muser {
+import java.io.Serializable;
+
+public class Muser implements Serializable {
     private String userName;
 
     public Muser(String userName, String userPassword, String userRole) {

@@ -33,17 +33,32 @@ public class LoginController {
     @FXML
     protected void OnLoginButtonClick(ActionEvent event) throws IOException
     {
-        if(txtuser.getText().equals("waseem") && txtpassword.getText().equals("123"))
-        {
-            //Son here add the code to Login
-
-
-            Parent root = FXMLLoader.load(getClass().getResource("ManagerDashboard.fxml"));
-            Scene scene = new Scene(root , 750, 500);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(scene);
-            window.show();
+        MuserDL.loadUserFromBinaryFile("users.dat");
+        Muser loginUser=MuserDL.getUser(txtuser.getText(),txtpassword.getText());
+        Parent root=null;
+        Scene scene =null;
+        Stage window=null;
+        switch(loginUser.getUserRole()){
+            case "Manager":
+                // manager DashBoard
+                 root = FXMLLoader.load(getClass().getResource("ManagerDashboard.fxml"));
+                 scene = new Scene(root , 750, 500);
+                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(scene);
+                window.show();
+                break;
+            case "Customer":
+                // Customers DashBoard
+                 root = FXMLLoader.load(getClass().getResource("CustomerDashboard.fxml"));
+                 scene = new Scene(root , 750, 500);
+                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(scene);
+                window.show();
+                break;
+            default:
+                return;
         }
+
     }
     @FXML
     protected void OnSignUpButtonCLick(ActionEvent event) throws IOException

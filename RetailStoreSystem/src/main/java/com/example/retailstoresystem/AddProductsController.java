@@ -18,9 +18,10 @@ public class AddProductsController {
     protected void AddBtnClick()
     {
         String name = nametxt.getText();
-        String price = pricetxt.getText();
+        //float price = (float)pricetxt.getText();
         String Qty = Qtytxt.getText();
 
+        //ProductDL.addProduct(name,price);
         // make an object and send it to list
 
 
