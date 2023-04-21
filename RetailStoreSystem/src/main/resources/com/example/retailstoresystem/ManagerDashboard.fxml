@@ -21,7 +21,7 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="UpdateProductsBtn" mnemonicParsing="false" onAction="#UpdateProductButtonClick" prefHeight="48.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="Update Products" textFill="WHITE">
+            <Button fx:id="UpdateProductsBtn" mnemonicParsing="false" onAction="#UpdateProductButtonClick" prefHeight="48.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="Update Stock" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
