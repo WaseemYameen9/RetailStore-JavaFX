@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.Pane?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="641.0" style="-fx-background-color: #142248;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retailstoresystem.DeleteProductsController">
+<?import javafx.scene.control.Label?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="641.0" style="-fx-background-color: #142248;"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retailstoresystem.DeleteProductsController">
    <children>
+      <TableView fx:id="productsTable" layoutX="27.0" layoutY="51.0" prefHeight="414.0" prefWidth="588.0">
+         <columns>
+            <TableColumn text="Name" fx:id="nameColumn">
+               <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Price" fx:id="priceColumn">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Quantity" fx:id="quantityColumn">
+               <cellValueFactory>
+                  <PropertyValueFactory property="quantity" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
       <Label layoutX="285.0" layoutY="242.0" text="View Products" />
    </children>
 </Pane>
