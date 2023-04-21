@@ -38,7 +38,7 @@ public class LoginController {
             //Son here add the code to Login
 
 
-            Parent root = FXMLLoader.load(getClass().getResource("ManagerDashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("CustomerDashboard.fxml"));
             Scene scene = new Scene(root , 750, 500);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
