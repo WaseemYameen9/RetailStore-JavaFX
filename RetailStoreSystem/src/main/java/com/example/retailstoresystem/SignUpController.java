@@ -31,8 +31,7 @@ public class SignUpController {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "Manager",
-                        "Customer",
-                        "Cashier"
+                        "Customer"
                 );
         RoleCB.setItems(options);
         RoleCB.setPromptText("Select a role");
