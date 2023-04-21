@@ -1,5 +1,7 @@
 package com.example.retailstoresystem;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +24,19 @@ public class SignUpController {
     private TextField txtpassword;
 
     @FXML
-    private ComboBox RoleCB;
+    private ComboBox<String> RoleCB;
+
+    @FXML
+    public void initialize() {
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        "Manager",
+                        "Customer",
+                        "Cashier"
+                );
+        RoleCB.setItems(options);
+        RoleCB.setPromptText("Select a role");
+    }
 
     @FXML
     protected void OnSignUpButtonCLick(ActionEvent event) throws IOException

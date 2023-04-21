@@ -25,12 +25,6 @@
             <Font name="Century Gothic" size="12.0" />
          </font></Label>
       <Button fx:id="btn" layoutX="277.0" layoutY="308.0" mnemonicParsing="false" onAction="#OnLoginButtonClick" text="Login" />
-      <Label fx:id="lblpassword1" layoutX="193.0" layoutY="258.0" text="Role">
-         <font>
-            <Font name="Century Gothic" size="12.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="RoleCB" layoutX="242.0" layoutY="254.0" prefWidth="150.0" promptText="Admin" />
       <Button fx:id="signupbtn" layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnSignUpButtonCLick" text="SignUp" />
    </children>
 </Pane>

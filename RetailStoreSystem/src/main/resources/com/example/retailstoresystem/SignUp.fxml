@@ -31,7 +31,7 @@
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="RoleCB" layoutX="252.0" layoutY="264.0" prefWidth="150.0" promptText="Admin" />
+      <ComboBox fx:id="RoleCB" layoutX="252.0" layoutY="264.0" prefWidth="150.0"/>
       <Button fx:id="signupbtn" layoutX="289.0" layoutY="319.0" mnemonicParsing="false" onAction="#OnSignUpButtonCLick" text="SignUp" />
    </children>
 </AnchorPane>
