@@ -29,6 +29,15 @@ public class MuserDL implements Serializable {
         }
         return null;
     }
+    public static Customer getCustomerObj(String userName){
+        for (Muser user:musers) {
+            if (user.getUserName().equals(userName)) {
+                if (user instanceof Customer)
+                    return (Customer) user;
+            }
+        }
+        return null;
+    }
     public static String getUserRole(String userName,String userPassword){
         for (Muser user:musers) {
             if(user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword))

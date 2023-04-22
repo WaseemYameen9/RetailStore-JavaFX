@@ -87,24 +87,6 @@ public class ManagerDashboardController {
         }
     }
 
-
-    @FXML
-    protected void ViewCustomersButtonClick() {
-        try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("ViewCustomers.fxml"));
-            if (contentarea != null) {
-                contentarea.getChildren().removeAll();
-                contentarea.getChildren().setAll(fxml);
-            } else {
-                // handle the case when contentarea is null
-                System.out.println("contentarea is null");
-            }
-        } catch (IOException e) {
-            // Handle the exception here
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     protected void SignoutButtonClick(ActionEvent event) throws IOException
     {

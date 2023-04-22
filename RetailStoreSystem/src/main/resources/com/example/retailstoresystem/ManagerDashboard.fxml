@@ -31,11 +31,6 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#ViewCustomersButtonClick" prefHeight="48.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="View Customers" textFill="WHITE">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-            </Button>
             <Button mnemonicParsing="false" onAction="#SignoutButtonClick" prefHeight="48.0" prefWidth="119.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="Sign Out" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="12.0" />

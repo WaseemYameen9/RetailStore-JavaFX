@@ -17,18 +17,23 @@ public class AddProductsController {
     @FXML
     protected void AddBtnClick()
     {
-        String name = nametxt.getText();
-        //float price = (float)pricetxt.getText();
-        String Qty = Qtytxt.getText();
+        if(! nametxt.getText().isEmpty() || ! pricetxt.getText().isEmpty() || ! Qtytxt.getText().isEmpty()) {
+            String name = nametxt.getText();
+            float price = Float.parseFloat(pricetxt.getText());
+            int Qty = Integer.parseInt(Qtytxt.getText());
 
-        //ProductDL.addProduct(name,price);
-        // make an object and send it to list
+            ProductDL.addProduct(name, price);
+            Product item = ProductDL.searchProduct(name);
+            StockDL.addInStock(item, Qty);
 
 
-        nametxt.clear();
-        pricetxt.clear();
-        Qtytxt.clear();
-
+            nametxt.clear();
+            pricetxt.clear();
+            Qtytxt.clear();
+        }
+        else{
+            // show message box
+        }
 
     }
 

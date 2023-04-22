@@ -49,11 +49,17 @@ public class LoginController {
                 break;
             case "Customer":
                 // Customers DashBoard
-                 root = FXMLLoader.load(getClass().getResource("CustomerDashboard.fxml"));
-                 scene = new Scene(root , 750, 500);
-                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("CustomerDashboard.fxml"));
+                root=loader.load();
+                CustomerDashboardController customerDashBoard=loader.getController();
+
+                Customer c=MuserDL.getCustomerObj(loginUser.getUserName());
+                customerDashBoard.setUser(c);
+                scene = new Scene(root , 750, 500);
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.show();
+
                 break;
             default:
                 return;

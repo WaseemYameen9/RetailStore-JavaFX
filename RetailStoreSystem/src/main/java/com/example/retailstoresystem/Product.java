@@ -1,6 +1,8 @@
 package com.example.retailstoresystem;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String productName;
 
     public float getProductPrice() {

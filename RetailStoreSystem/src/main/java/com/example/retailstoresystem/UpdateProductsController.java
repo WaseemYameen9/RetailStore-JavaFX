@@ -16,17 +16,29 @@ public class UpdateProductsController {
     @FXML
     protected void updateBtnClicked()
     {
-        String name = nametxt.getText();
-        String price = pricetxt.getText();
-        String Qty = Qtytxt.getText();
+        ProductDL.loadProductsFromBinaryFile("products.dat");
+        StockDL.loadStocksFromBinaryFile("stock.dat");
+        if(! nametxt.getText().isEmpty() || ! pricetxt.getText().isEmpty() || ! Qtytxt.getText().isEmpty()) {
+            String name = nametxt.getText();
+            float price = Float.parseFloat(pricetxt.getText());
+            int Qty = Integer.parseInt(Qtytxt.getText());
 
-        // make an object and send it to list
 
+            // make an object and send it to list
+            if(ProductDL.UpdateInfo(name,price)){
+                if(StockDL.UpdateInfo(ProductDL.searchProduct(name),Qty)){
+                    nametxt.clear();
+                    pricetxt.clear();
+                    Qtytxt.clear();
+                    ProductDL.storeProductsToFile("products.dat");
+                    StockDL.storeStockToFile("stock.dat");
+                }
+            }
+            else {
+                // not found message
+            }
 
-        nametxt.clear();
-        pricetxt.clear();
-        Qtytxt.clear();
-
+        }
     }
 
 }

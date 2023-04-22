@@ -1,6 +1,8 @@
 package com.example.retailstoresystem;
 
-public class Stock {
+import java.io.Serializable;
+
+public class Stock implements Serializable {
     public Product getProduct() {
         return product;
     }
@@ -8,7 +10,8 @@ public class Stock {
     public void setProduct(Product product) {
         this.product = product;
     }
-
+    public String getProductName(){return product.getProductName();}
+    public float getProductPrice(){return product.getProductPrice();}
     public int getQty() {
         return Qty;
     }
@@ -25,8 +28,9 @@ public class Stock {
         Qty = qty;
     }
     public boolean AvailableQTY(int qty){
-        if(this.Qty<=qty){
+        if(this.Qty>=qty){
             this.Qty=this.Qty-qty;
+            return true;
         }
         return false;
     }

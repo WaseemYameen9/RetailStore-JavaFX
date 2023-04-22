@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="641.0" style="-fx-background-color: #142248;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retailstoresystem.DeleteProductsController">
+<Pane fx:id="txtProduct" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="641.0" style="-fx-background-color: #142248;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retailstoresystem.DeleteProductsController">
    <children>
       <Label layoutX="140.0" layoutY="138.0" text="Product Name:" textFill="#fffbfb">
          <font>
@@ -19,6 +19,6 @@
          </font>
       </Label>
       <Button fx:id="btnAdd" layoutX="280.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteButtonClicked" text="Delete" />
-      <ComboBox fx:id="productName" layoutX="255.0" layoutY="135.0" onAction="#deleteButtonClicked" prefHeight="25.0" prefWidth="227.0" />
+      <TextField fx:id="txtProductName" layoutX="280.0" layoutY="135.0" />
    </children>
 </Pane>

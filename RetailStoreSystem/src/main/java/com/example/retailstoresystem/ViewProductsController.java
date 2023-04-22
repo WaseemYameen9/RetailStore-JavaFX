@@ -1,48 +1,77 @@
 package com.example.retailstoresystem;
-
-import com.sun.javafx.charts.Legend;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewProductsController {
 
     @FXML
-    private TableView<Product> productsTable;
+    private TableView<Stock> productsTable;
 
     @FXML
-    private TableColumn<Product, String> nameColumn;
+    private TableColumn<Stock, String> nameColumn;
 
     @FXML
-    private TableColumn<Product, Double> priceColumn;
+    private TableColumn<Stock, Double> priceColumn;
 
     @FXML
-    private TableColumn<Product, Integer> quantityColumn;
+    private TableColumn<Stock, Integer> quantityColumn;
 
-    private ObservableList<Product> products;
+    private ObservableList<Stock> products;
 
     public void initialize(URL url, ResourceBundle rb) {
-        // assume productList is your list of products
-        List<Product> productList = null;
+        refreshTable();
+    }
 
-        // convert productList to an ObservableList
-        ObservableList<Product> products = FXCollections.observableArrayList(productList);
+    public void handleRefreshButton() {
+        refreshTable();
+    }
 
-        // set the items of the TableView
+    private void refreshTable() {
+        StockDL.loadStocksFromBinaryFile("stock.dat");
+        if (!StockDL.getList().isEmpty()) {
+            // convert productList to an ObservableList
+            ObservableList<Stock> products = FXCollections.observableArrayList(StockDL.getList());
 
-        productsTable.setItems(products);
+            // set the items of the TableView
+            productsTable.setItems(products);
 
-        // set up the columns and map the values of the product attributes to the cells
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+            // set up the columns and map the values of the product attributes to the cells
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
+            priceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
+            quantityColumn.setCellValueFactory(new PropertyValueFactory<>("qty"));
+
+            // custom cell factory for the quantity column to display the available quantity of the product in stock
+            quantityColumn.setCellFactory(column -> {
+                return new TableCell<Stock, Integer>() {
+                    @Override
+                    protected void updateItem(Integer qty, boolean empty) {
+                        super.updateItem(qty, empty);
+                        if (empty) {
+                            setText("");
+                        } else {
+                            setText(String.valueOf(qty));
+                            Stock stock = (Stock) getTableRow().getItem();
+                            if (stock != null && qty > 0) {
+                                setTextFill(javafx.scene.paint.Color.GREEN);
+                            } else {
+                                setTextFill(javafx.scene.paint.Color.RED);
+                            }
+                        }
+                    }
+                };
+            });
+        } else {
+            // show message box
+        }
     }
 
 }

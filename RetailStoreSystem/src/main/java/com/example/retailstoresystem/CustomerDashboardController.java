@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CustomerDashboardController {
-
+    private Customer user;
 
     @FXML
     private StackPane contentarea;
@@ -20,7 +20,7 @@ public class CustomerDashboardController {
     @FXML
     protected void ViewProductButtonClick() {
         try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("CustomerViewProducts.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("ViewProducts.fxml"));
             if (contentarea != null) {
                 contentarea.getChildren().removeAll();
                 contentarea.getChildren().setAll(fxml);
@@ -40,7 +40,7 @@ public class CustomerDashboardController {
     @FXML
     protected void BuyProductButtonClick() {
         try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("CustomerBuyProducts.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("BuyProduct.fxml"));
             if (contentarea != null) {
                 contentarea.getChildren().removeAll();
                 contentarea.getChildren().setAll(fxml);
@@ -55,6 +55,7 @@ public class CustomerDashboardController {
     }
 
 
+
     @FXML
     protected void SignoutButtonClick(ActionEvent event) throws IOException
     {
@@ -67,4 +68,7 @@ public class CustomerDashboardController {
     }
 
 
+    public void setUser(Customer loginUser) {
+        this.user=loginUser;
+    }
 }
